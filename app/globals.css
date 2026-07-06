@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html.light { color-scheme: light; }
+
+* { -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; overscroll-behavior: none; }
+
+body {
+  @apply font-body bg-ink text-slate-100 antialiased;
+}
+html.light body { @apply bg-[#EFEAE2] text-slate-900; }
+
+.glass {
+  background: rgba(17, 27, 33, 0.95);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+html.light .glass {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.bubble-me {
+  background: #1C51E0;
+  color: #F0F6FF;
+}
+.bubble-them { background: #1F2C34; box-shadow: 0 1px 1px rgba(0,0,0,.25); }
+html.light .bubble-them { background: #fff; color: #1a1d24; }
+
+.scroll-thin::-webkit-scrollbar { width: 0; height: 0; }
+
+@keyframes typingDot {
+  0%, 60%, 100% { transform: translateY(0); opacity: .4; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+.tdot { animation: typingDot 1.2s infinite; }
+.tdot:nth-child(2) { animation-delay: .15s; }
+.tdot:nth-child(3) { animation-delay: .3s; }
+
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(77,159,255,.55); }
+  100% { box-shadow: 0 0 0 12px rgba(77,159,255,0); }
+}
+.rec-pulse { animation: pulseRing 1.2s infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* WhatsApp-style chat wallpaper */
+.chat-wall {
+  background-color: #0B141A;
+  background-image: radial-gradient(rgba(134,150,160,.10) 1.1px, transparent 1.1px);
+  background-size: 22px 22px;
+}
+html.light .chat-wall {
+  background-color: #EFEAE2;
+  background-image: radial-gradient(rgba(0,0,0,.06) 1.1px, transparent 1.1px);
+}
